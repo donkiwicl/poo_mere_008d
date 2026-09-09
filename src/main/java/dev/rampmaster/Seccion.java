@@ -1,14 +1,20 @@
 package dev.rampmaster;
 
 public class Seccion {
-    // Atributos
-    private String codigo;
+    private String  codigo;
     private Asignatura asignatura;
-    private boolean activa = false;
+    private boolean activo = false;
 
-    public Seccion(String codigo, Asignatura asignatura){
+
+    public Seccion(String codigo, Asignatura asignatura) {
         this.codigo = codigo;
         this.asignatura = asignatura;
     }
+
+
+
+
+
+
 
 }
