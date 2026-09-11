@@ -1,41 +1,77 @@
 package dev.rampmaster;
 
+import java.util.Date;
+import java.util.HashSet;
+
 public abstract class Usuario {
-    private String nombre;
-    private String apellido;
+    //Principales
+    private String rut;
+    private String pri_nom;
+    private String sec_nom;
+    private String pri_ape;
+    private String sec_ape;
+    private Date fec_nac;
     private String correo;
-    private String run;
 
-    public Usuario(String nombre, String apellido, String correo, String run) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Usuario(String rut, String pri_nom, String sec_nom, String pri_ape, String sec_ape, Date fec_nac, String correo) {
+        this.rut = rut;
+        this.pri_nom = pri_nom;
+        this.sec_nom = sec_nom;
+        this.pri_ape = pri_ape;
+        this.sec_ape = sec_ape;
+        this.fec_nac = fec_nac;
         this.correo = correo;
-        this.run = run;
     }
 
 
+    //Getters y Setters
 
-
-
-
-
-
-
-    //Getters and Setters
-    public String getNombre() {
-        return nombre;
+    public String getRut() {
+        return rut;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setRut(String rut) {
+        this.rut = rut;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getPri_nom() {
+        return pri_nom;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setPri_nom(String pri_nom) {
+        this.pri_nom = pri_nom;
+    }
+
+    public String getSec_nom() {
+        return sec_nom;
+    }
+
+    public void setSec_nom(String sec_nom) {
+        this.sec_nom = sec_nom;
+    }
+
+    public String getPri_ape() {
+        return pri_ape;
+    }
+
+    public void setPri_ape(String pri_ape) {
+        this.pri_ape = pri_ape;
+    }
+
+    public String getSec_ape() {
+        return sec_ape;
+    }
+
+    public void setSec_ape(String sec_ape) {
+        this.sec_ape = sec_ape;
+    }
+
+    public Date getFec_nac() {
+        return fec_nac;
+    }
+
+    public void setFec_nac(Date fec_nac) {
+        this.fec_nac = fec_nac;
     }
 
     public String getCorreo() {
@@ -44,13 +80,5 @@ public abstract class Usuario {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getRun() {
-        return run;
-    }
-
-    public void setRun(String run) {
-        this.run = run;
     }
 }

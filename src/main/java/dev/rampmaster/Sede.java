@@ -3,11 +3,13 @@ package dev.rampmaster;
 import java.util.HashSet;
 
 public class Sede {
+    private Integer id;
     private String nombre;
     private String direccion;
     private HashSet<Piso> pisos;
 
-    public Sede(String nombre, String direccion, HashSet<Piso> pisos) {
+    public Sede(Integer id, String nombre, String direccion, HashSet<Piso> pisos) {
+        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.pisos = pisos;
@@ -15,8 +17,22 @@ public class Sede {
 
 
 
+    public void addPiso(Piso piso){
+        this.pisos.add(piso);
+        piso.setSede(this);
+    }
 
-    //Getters y setters
+
+
+    // Getter y Setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
