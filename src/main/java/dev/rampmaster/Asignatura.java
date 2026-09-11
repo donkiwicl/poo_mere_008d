@@ -1,6 +1,4 @@
 package dev.rampmaster;
-//identificador interno, un nombre, un código, una
-//sección y una jornada
 
 public class Asignatura {
     private String id;
@@ -55,5 +53,14 @@ public class Asignatura {
 
     public void setJornada(String jornada) {
         this.jornada = jornada;
+    }
+
+    public void mostrarAsignatura(){
+        System.out.println("Asignatura:");
+        System.out.println("ID: " + id);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Código: " + codigo);
+        System.out.println("Sección: " + seccion);
+        System.out.println("Jornada: " + jornada);
     }
 }
