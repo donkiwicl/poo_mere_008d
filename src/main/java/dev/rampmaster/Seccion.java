@@ -1,23 +1,26 @@
 package dev.rampmaster;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class Seccion {
     private String  codigo;
     private Asignatura asignatura;
     private Docente docente;
+    private HashSet<Estudiante> estudiantes;
     private String modalidad;
     private Sala sala;
     private boolean activo = false;
 
-    public Seccion(String codigo, Asignatura asignatura, Docente docente, String modalidad, Sala sala, boolean activo) {
+    public Seccion(String codigo, Asignatura asignatura, Docente docente, HashSet<Estudiante> estudiantes, String modalidad, Sala sala, boolean activo) {
         this.codigo = codigo;
         this.asignatura = asignatura;
         this.docente = docente;
+        this.estudiantes = estudiantes;
         this.modalidad = modalidad;
         this.sala = sala;
         this.activo = activo;
     }
-
-
 
 
 
@@ -70,5 +73,13 @@ public class Seccion {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    public HashSet<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
+
+    public void setEstudiantes(HashSet<Estudiante> estudiantes) {
+        this.estudiantes = estudiantes;
     }
 }
