@@ -1,72 +1,49 @@
 package dev.rampmaster;
 
-import java.util.Objects;
+import java.util.HashSet;
 
 public class Asignatura {
-
-    private int id;
     private String nombre;
+    private int id;
     private String codigo;
-    private String jornada;
+    private HashSet<Seccion> secciones;
 
-    public Asignatura(int id, String nombre, String codigo, String jornada) {
-        if (nombre == null || nombre.isBlank())
-            throw new IllegalArgumentException("El nombre de la asignatura no puede estar vacío");
-        if (codigo == null || codigo.isBlank())
-            throw new IllegalArgumentException("El código de la asignatura no puede estar vacío");
-        if (jornada == null || jornada.isBlank())
-            throw new IllegalArgumentException("La jornada no puede estar vacía");
-
-        this.id = id;
+    public Asignatura(String nombre, int id, String codigo){
         this.nombre = nombre;
+        this.id = id;
         this.codigo = codigo;
-        this.jornada = jornada;
+        this.secciones = new HashSet<>();
     }
 
-    public int getId() { return id; }
+    public void agregarSeccion(Seccion seccion){
+        this.secciones.add(seccion);
+    }
 
-    public String getNombre() {
-        return nombre;}
-
-    public void setNombre(String nombre) {
-        if (nombre == null || nombre.isBlank())
-            throw new IllegalArgumentException("El nombre de la asignatura no puede estar vacío.");
-        this.nombre = nombre;
+    public HashSet<Seccion> getSecciones() {
+        return secciones;
     }
 
     public String getCodigo() {
-        return codigo;}
+        return codigo;
+    }
 
     public void setCodigo(String codigo) {
-        if (codigo == null || codigo.isBlank())
-            throw new IllegalArgumentException("El código de la asignatura no puede estar vacío");
         this.codigo = codigo;
     }
 
-    public String getJornada() {
-        return jornada;}
-
-    public void setJornada(String jornada) {
-        if (jornada == null || jornada.isBlank())
-            throw new IllegalArgumentException("La jornada no puede estar vacía");
-        this.jornada = jornada;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o instanceof Asignatura) {
-            return id == ((Asignatura) o).id;
-        }
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
+    public int getId() {
         return id;
     }
 
-    @Override
-    public String toString() {
-        return nombre + " (" + codigo + ") - " + jornada;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

@@ -3,48 +3,47 @@ package dev.rampmaster;
 import java.util.HashSet;
 
 public class Piso {
-
     private int id;
-    private int numeroPiso;
+    private int nroPiso;
+    private Sede sede;
     private HashSet<Sala> salas;
 
-    public Piso(int id, int numeroPiso) {
-        if (numeroPiso < 0)
-            throw new IllegalArgumentException("El número de piso no puede ser negativo");
+    public Piso(int id, int nroPiso, Sede sede){
         this.id = id;
-        this.numeroPiso = numeroPiso;
+        this.nroPiso = nroPiso;
+        this.sede = sede;
         this.salas = new HashSet<>();
     }
 
     public int getId() {
-        return id;}
+        return id;
+    }
 
-    public int getNumeroPiso() {
-        return numeroPiso;}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setNumeroPiso(int numeroPiso) {
-        if (numeroPiso < 0)
-            throw new IllegalArgumentException("El número de piso no puede ser negativo");
-        this.numeroPiso = numeroPiso;
+    public int getNroPiso() {
+        return nroPiso;
+    }
+
+    public void setNroPiso(int nroPiso) {
+        this.nroPiso = nroPiso;
+    }
+
+    public Sede getSede() {
+        return sede;
+    }
+
+    public void setSede(Sede sede) {
+        this.sede = sede;
     }
 
     public HashSet<Sala> getSalas() {
-        return salas;}
-
-    public void agregarSala(Sala sala) {
-        if (sala == null)
-            throw new IllegalArgumentException("La sala no puede ser vacio");
-        salas.add(sala);
+        return salas;
     }
 
-    public void eliminarSala(Sala sala) {
-        if (sala == null)
-            throw new IllegalArgumentException("La sala no puede ser vacio");
-        salas.remove(sala);
-    }
-
-    @Override
-    public String toString() {
-        return "Piso " + numeroPiso + " | Salas: " + salas.size();
+    public void agregarSala(Sala sala){
+        this.salas.add(sala);
     }
 }

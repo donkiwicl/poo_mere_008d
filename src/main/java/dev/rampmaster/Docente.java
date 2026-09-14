@@ -1,45 +1,30 @@
 package dev.rampmaster;
 
-import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
 
-public class Docente extends Usuario implements Colaborable {
+public class Docente extends Usuario{
+    private String especialidad;
+    private List<Asignatura> asignaturas;
 
-    private HashSet<Asignatura> asignaturas;
-
-    public Docente(String run, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido,
-                   Integer edad, String correoIns,
-                   HashSet<Asignatura> asignaturas) {
-        super(run, primerNombre, segundoNombre, primerApellido,
-                segundoApellido, edad, correoIns);
-        this.asignaturas = (asignaturas != null) ? asignaturas : new HashSet<>();
+    public Docente(String primerNombre,String segundoNombre, String primerApellido, String segundoApellido, String correo, String run, String fecha_nacimiento, String especialidad){
+        super(primerNombre, segundoNombre, primerApellido, segundoApellido, correo, run, fecha_nacimiento);
+        this.especialidad = especialidad;
+        this.asignaturas = new ArrayList<>();
     }
 
-    public HashSet<Asignatura> getAsignaturas() {
-        return asignaturas;}
-
-    public void setAsignaturas(HashSet<Asignatura> asignaturas) {
-        this.asignaturas = (asignaturas != null) ? asignaturas : new HashSet<>();
+    public String getEspecialidad() {
+        return especialidad;
     }
 
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
     public void agregarAsignatura(Asignatura asignatura) {
-        if (asignatura == null)
-            throw new IllegalArgumentException("La asignatura no puede estar vacio");
-        asignaturas.add(asignatura);
+        this.asignaturas.add(asignatura);
     }
 
-    public void eliminarAsignatura(Asignatura asignatura) {
-        if (asignatura == null)
-            throw new IllegalArgumentException("La asignatura no puede estar vacio");
-        asignaturas.remove(asignatura);
-    }
-
-    @Override
-    public int usarJunaColaborable(int valorAlmuerzo) {
-        return valorAlmuerzo;
-    }
-
-    @Override
-    public String toString() {
-        return "[Docente] " + super.toString() + " | Asignaturas: " + asignaturas.size();
+    public List<Asignatura> getAsignaturas() {
+        return asignaturas;
     }
 }
